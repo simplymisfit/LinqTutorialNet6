@@ -4,6 +4,14 @@ using LinqTutorial.MethodSyntax;
 
 namespace LinqTutorial
 {
+    public static class StringExtensions
+    {
+        public static int GetCountOfLines(this string input)
+        {
+            return input.Split("\n").Length;
+        }
+    }
+
     internal class Program
     {
         private static void Main(string[] args)
@@ -52,6 +60,17 @@ namespace LinqTutorial
 
             var words = new[] { "a", "bb", "ccc", "dddd" };
             var wordsLongerThan2Letters = words.Where(word => word.Length > 2);
+
+            var multilineString = @"
+                                    Lorem ipsum dolor sit amet,
+                                    consectetur adipiscing elit.
+                                    Quisque ultrices non mi quis molestie.
+                                    Maecenas hendrerit sagittis risus.
+                                    Cras quis orci eget risus mattis egestas quis sit amet metus.
+                                    Ut eget tellus eget nunc efficitur lacinia et non purus.
+                                    Quisque eu ultrices eros, at ornare lectus.";
+
+            var countOfLines = multilineString.GetCountOfLines();
 
             Console.ReadKey();
         }
