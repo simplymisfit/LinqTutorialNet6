@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Linq;
 using LinqTutorial.MethodSyntax;
 
 namespace LinqTutorial
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             //METHOD SYNTAX
 
@@ -27,7 +28,7 @@ namespace LinqTutorial
             //Distinct.Run();
             //PrependAppend.Run();
             //ConcatUnion.Run();
-            //TypeSwitching.Run();           
+            //TypeSwitching.Run();
             //Select.Run();
             //SelectMany.Run();
             //GeneratingNewCollection.Run();
@@ -48,6 +49,9 @@ namespace LinqTutorial
 
             //OTHERS
             //DotNet6Improvements.Run();
+
+            var words = new[] { "a", "bb", "ccc", "dddd" };
+            var wordsLongerThan2Letters = words.Where(word => word.Length > 2);
 
             Console.ReadKey();
         }
